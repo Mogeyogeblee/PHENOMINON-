@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="fiveicon.png">
+    <title>MOGEYOGEBLEE PORTFOLIO</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <style>
+        
+        .input-field input, .input-field select, .textarea-field textarea {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            outline: none; /* Remove default input focus outline */
+            font-size: 16px;
+        }
+        
+        .input-field input#subject {
+            width: calc(100% - 10px); /* Adjusted width */
+        }
+        
+         
+
+         /* FOR THE CV*/
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-image: url('popUpLARGE2.png');
+            background-repeat: no-repeat;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container h2{
+          padding-top: 6%;
+          color: #f0b913;
+        }
+       .container  p {
+            margin-bottom: 20px;
+           
+        }
+       .container  ul {
+            list-style-type: none;
+            padding: 0;
+        }
+       .container  ul li {
+            margin-bottom: 10px;
+        }
+        .profile-pic {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+      .container a{
+        text-decoration: none;
+        
+      }
+
+     .container  i{
+     font-size: 20px;
+       
+        
+       
+      }
+
+      #coVeta{
+        display:none;
+      }
+
+      #CLOSEcvbutton {
+        background: #000;
+        display: none;
+        color: red;
+        font-size: 40px;
+        position: absolute;
+        border-radius: 50%;
+        left: 1506px;
+        top: 120px;
+    }
+     /*  CV ENDS HERE*/
+
+
+
+
+     #moreCV {
+        margin-top: -8px; 
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: left; /* Change 'none' to 'left' if you want left-aligned text */
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+    }
+     
+    
+      #moreCV h4{
+        font-style: bold;
+        color: var(--main-color);
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        padding-right: 20%;
+        padding-left: 20%;
+      }
+    
+      #moreCV Strong {
+        position: relative;
+        display: inline-block;
+        font-size: 2.5rem;
+        color: transparent; /* Set text color to transparent */
+        background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00); /* Set your desired gradient colors */
+        -webkit-background-clip: text; /* Clip the background to the text */
+        background-clip: text;
+        overflow: hidden;
+        margin: 30px 0 30px 10px; /* Adjust the margin values as needed */
+    }
+    
+    
+    #moreCV .glow-text {
+        display: inline-block;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+    
+      #moreCV h2{
+        padding-right: 20%;
+        padding-left: 20%;
+      }
+      #moreCV a {
+        text-decoration:none;
+        color: #00ffff ; 
+      }
+    
+      
+    
+      #moreCV{
+        display: block;
+      }
+    
+      
+      #closethis {
+        font-size: 30px;
+        z-index: 2;
+        position: absolute;
+        right: -18px;
+        top: -18px;
+        border: solid red 6px;
+        background: gold;
+    }
+      
+
+    #OPENcvbutton{
+      
+    }
+
+      /* Style for the blurred overlay */
+   .POPoverlay.overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla(0, 0%, 0%, 0.906); /* Semi-transparent black */
+        backdrop-filter: blur(20px); /* Add blur effect */
+        z-index: 9998; /* Place it behind the popup */
+    }
+
+    /* Style for the popup */
+    .popupMessage {
+        display: block;
+        width: 98%;
+        height: 96%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: url('popUpLARGE2.png');
+        background-repeat: no-repeat;
+        padding: 60px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+    }
+
+
+    button:hover i {
+        color: blue;
+      }
+
+      button i {
+        color: #11ff0000;
+        font-size: 50px;
+        position: absolute;
+        right: 0px;
+        top: 0;
+    }
+
+
+
+     
+    /* form styles */
+    
+    .container {
+        display: none;
+        width: 700px;
+        padding: 30px;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        background-image: url('BGimage2.png');
+        position: relative; /* Add position relative for absolute positioning of close button */
+      }
+      
+      h4 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: white;
+      }
+      
+      input, select, textarea {
+        top: 770px;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    #submit {
+        border: none;
+        font-size: 30px;
+        padding-left: 50px;
+        background-color: rgba(255, 68, 0, 0.573);
+        color: white;
+        cursor: pointer;
+        width: 200px;
+        height: 55px;
+        margin-left: 200px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+      
+      #submit:hover {
+        background-color: #6ef41a; /* corrected color */
+        color: rgb(9, 0, 0);
+        font-weight: bold;
+      }
+  
+      /* Style for close button */
+      .close-btn {
+        position: absolute;
+        top: -16px;
+        right: 10px;
+        cursor: pointer;
+        color: rgb(12, 226, 8);
+        font-size: 60px;
+      }
+  
+  .close-btn:hover {
+        color: rgb(236, 80, 13);
+      }
+  
+      /* Style for show button */
+      #show-btn {
+        font-size: 30px;
+        display: block;
+        top: 5600px;
+        left: 1200px;
+        border: none;
+        background: var(--bg-color);
+        color: rgb(94, 235, 34);
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+
+      #contact-form #terms-checkbox-label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: white;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+  
+  
+  
+  
+    #contact-form #terms-checkbox {
+        margin-top: -60px;
+        vertical-align: middle;
+        position: absolute;
+        left: -310px;
+    }
+  
+    #contact-form #gender-dropdown {
+        width: calc(100% - 22px); /* Adjusted width to accommodate close button */
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+  
+
+    .centered-button{
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+
+
+     /*  CV STYLING */
+     @media screen and (max-width: 762px) {
+        .profile-pic {
+            left: 8%;
+            top: 630%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    
+ 
+    .cv-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        padding-bottom: 60px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* Two columns */
+        grid-gap: 20px;
+      }
+  
+      .left-column {
+        display: grid;
+        grid-gap: 10px;
+        background-color: #b58c05;
+        padding: 20px;
+        border-radius: 2px;
+      }
+  
+      .right-column {
+        grid-gap: 10px;
+        background: var(--bg-color);
+        padding: 20px;
+        border-radius: 2px;
+        position: relative; /* Relative positioning for absolute button positioning */
+      }
+  
+      .profile-pic {
+        left: 35%;
+        top: 556%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+
+    }
+  
+    .contact-links {
+        margin-top: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+  
+      .contact-link {
+        text-align: center;
+      }
+  
+      .contact-link img {
+        width: 50px;
+        height: 50px;
+      }
+  
+      .skills-list {
+        margin: 0;
+        padding: 0;
+      }
+  
+      .skill-item {
+        margin-bottom: 5px;
+      }
+  
+      .language-item {
+        margin-bottom: 10px;
+      }
+  
+      .language-progress {
+        width: 100%;
+        background-color: #ddd;
+        height: 10px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+  
+      .language-progress-bar {
+        height: 100%;
+        background-color: #15eb0d;
+        border-radius: 5px;
+      }
+  
+    .cancel-btn {
+        display: block;
+        position: absolute;
+        padding: 2px;
+        background: red;
+        border-radius: .5em;
+        width: 40px;
+        height: 30px;
+        border: solid #6b0c0c 2px;
+        color: #fdf8f8;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+      
+    .cancel-btn:hover {
+        opacity: 1; /* Show the button on hover */
+      }
+      
+      .right-column:hover .cancel-btn {
+        opacity: 1;
+      }
+  
+      .download-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0; /* Initially hide the button */
+        transition: opacity 0.3s; /* Add a transition for smooth appearance */
+      }
+      
+      .cv-container:hover .download-btn {
+        opacity: 1; /* Show the button when parent (.cv-container) is hovered over */
+      }
+  
+      #cv-container{
+        display: none;
+      }
+
+      .cv-container a {
+        font-size: 30px; /* Adjust the value as needed */
+        text-decoration:none;
+    }
+    
+    </style>
+   
+</head>
+
+<body>
+
+    <!-- Blurred overlay -->
+     <div id="overlay" class="POPoverlay"></div>
+
+
+        <!-- Popup content -->
+    <div id="popupMessage" class="popupMessage">
+        <h2 style="color: aqua; font-size:40px">Welcome to <br> MOGEYOGEBLEE the <strong>PHENOMINON</strong>  <br>VISUA ENVERONMENT!</h2>
+        <p style="color: rgb(255, 0, 157); font-size:25px">Thank you for visiting My page. I hope you enjoy your stay as you tour the page.
+            <br><mark>Hover over to the upper-right corner; <br> a close button will appear. Click it to dismiss this window!!!!</mark>
+        </p>
+        <button onclick="closePopup()" title="Click this button to close this window"><i class='bx bxs-x-square' style="cursor: pointer;" onmouseover="this.style.color='red'" onmouseout="this.style.color=''"></i></button>
+
+
+
+    </div>
+    <!-- Popup content -->
+
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="NEW-LOGO.png" MOSES alt="LEE Logo">
+        </a>
+        
+        <div class="bx bx-menu"  id="menu-icon"></div>
+
+        
+        <nav class="navbar">
+            <a href="#home" class="active">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#contact">CONTACT</a>
+
+            <span class="active-nav"></span>
+        </nav>    
+    </header>
+
+<!-- home section design -->                     
+<section class="home" id="home">
+    <div class="home-content">
+        
+        <div class="text-container">
+            <div class="bg-animation"></div>
+            Hello, Bonjour, नमस्कार, Muraho<br>I'm <span class="glow-text"><b>MOSES DORBOR</b></span>
+        </div>
+
+        <div class="text-animation">
+            <h2>TECH-SAVVY</h2>
+        </div>
+        <p>As a driven software engineer with a year of hands-on experience, I'm committed to unleashing transformative outcomes through meticulous precision and agile problem-solving. Fueled by an insatiable passion for technology, I not only survive but thrive amidst the relentless flux of our dynamic age. I eagerly embrace challenges, seamlessly adapting to the ever-evolving landscape. I stand ready to seize every opportunity to craft groundbreaking projects and pioneer inventive solutions, transcending geographical confines and reshaping the future.
+
+            I am a valuable asset with the ability to propose and execute projects from conceptual creative thought to real-world implementation.
+        </p>
+
+            <div class="btn-box">
+                <a href="https://www.linkedin.com/in/moses-dorbor-52401a268?utm_source=" class="btn"  title="You will be redirected to MOGEYOGEBLEE Linkedin">HIRE ME 💎</a>
+                
+                <a href="http://wa.link/i19kok" class="btn" title="You will be redirected to MOGEYOGEBLEE Whatsapp">LET'S DIALOGE</a>
+            </div>
+    </div>
+
+    <div class="home-sci">
+        <a href="https://www.facebook.com/"><i class='bx bxl-facebook-circle' style="color: rgb(0, 145, 255);" title="facebook"></i></a>
+        <a href="https://www.instagram.com/dorborm22?igsh="><i class='bx bxl-instagram-alt' style="color: rgb(255, 0, 153);" title="instagram"></i></a>
+        <a href="https://www.linkedin.com/in/moses-dorbor-52401a268?utm_source="><i class='bx bxl-linkedin-square' style="color: rgb(0, 174, 255);" title="linkedin"></i></a>
+        <a href="http://wa.link/i19kok"><i class='bx bxl-whatsapp' style="color: rgb(10, 192, 52);" title="whatsapp"></i></a>
+        <a href="https://www.youtube.com/@mosesdorbor3695"><i class='bx bxl-youtube' style="color: rgb(255, 0, 0);" title="youtube"></i></a>
+    </div>
+
+    <!-- Your existing content -->
+    <div class="home-imgHover"></div>
+</section>
+<!-- About Section -->
+<section class="about" id="about">
+    <h2 class="heading" id="heading"><b>A</b>bout <span>Me</span></h2>
+
+    <div class="about-img">
+        
+        <div class="circle-2">
+            <div class="circle-1">
+              <div class="about-img-container">
+                <div class="about-img">
+                  <!-- Your about image content goes here -->
+                  <img src="about21.png" alt="About Image">
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        <span class="circle-spin"></span>
+
+        <div class="about-content">
+            <h3 style="color: #13f01e;">TECH-SAVVY</h3>
+            <h4><strong style="color:goldenrod">MOGEYOGEBLEE</strong> THE <span style="color: #d613f0;" >PHENOMINON</span></h4>
+
+            <p>
+                I am a highly motivated and detail-oriented individual, deeply passionate about problem-solving and innovation. Despite not pursuing formal studies at the moment, I have cultivated a robust foundation in software engineering. Click the details button for further information.
+            </p>
+            <div class="btn-wrapper">
+                <div class="btn-box" btns>
+                    <a href="#contact" class="btn-a1" onclick="openForm()"  title="'Click to see Mogeyogeblee CV'📑">Read More 📖</a>
+                </div>
+            </div>
+           
+            
+</section>
+
+<!-- Education Section -->
+<section class="education" id="education">
+    <h2  id="heading">My <span style="color: #ff00ff;">Jou<b style="color: #eeeeee;">r</b>ney</span></h2>
+
+    <div class="education-row">
+        <div class="education-column">
+            <h3 class="title">Education</h3>
+
+            <div class="education-box">
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2020 - 2021</div>
+                        <h3>No Degree To Show</h3>
+                        <p>
+                            Without a formal degree, I have the freedom to learn without the interruptions of traditional schooling, allowing me to eliminate distractions and create ample space for focused learning. I take pride in the concept of earning while learning. My passion drives me to pursue what I want to achieve, with or without external influences. Nonetheless, I acknowledge the necessity of doing what needs to be done.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
+                        <h3>No Degree To Show</h3>
+                        <p>
+                            Though I lack a degree to showcase, I ask for your trust in entrusting me with your contracts or projects. I firmly believe that success is not solely defined by formal education, and the capabilities of both degree holders and non-degree holders should be valued equally. If you hold a differing perspective, I encourage you to seek insights from knowledgeable educators.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2023 - 2024</div>
+                        <h3>Content Creaction</h3>
+                        <p>
+                            Though I may not hold a formal degree, I excel in managing a wide range of text-based computational tasks, from basic to complex, often exceeding the capabilities of some degree holders. Additionally, I specialize in customization across various file types and have a knack for creating content from scratch.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-column">
+            <h3 class="title">Experience</h3>
+
+            <div class="education-box">
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
+                        <h3>GAMIFICATION AND 3D ASSETS 🎮</h3>
+                        <p>
+                            Whether it's creating For stunning visuals in games, films, or architectural renderings, you can rely on me to blend artistry with technical expertise, delivering exceptional results that captivate audiences and elevate your business or services to new heights of visual storytelling.
+                    </div>
+
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
+                        <h3>ALL ABOUT GRAPHIC 🍇</h3>
+                        <p>
+                            I am also proficient in Graphic Design, demonstrating mastery in Adobe products such as Photoshop, Illustrator, and InDesign. My expertise lies in crafting visually compelling designs with a keen eye for detail and precision. I prioritize the use of industry-standard Adobe tools to showcase my unique and distinct abilities in graphic design.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="education-content">
+                    <div class="content">
+                        <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
+                    <h3>VIDEO EDITING & ANIMATION 🎥</h3>
+                        <p>
+                            I specialize in video editing and animation, utilizing Adobe Premiere Pro and DaVinci Resolve to craft dynamic visual storytelling. My work reflects a seamless blend of creativity and technical precision. Proficient in both platforms, I demonstrate versatility and a commitment to delivering high-quality video content.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- skills elements  -->
+  <!-- <div class="wrap-div"> -->
+  <section class="skills" id="skills">
+    <div class="skills-container">
+      <h2 data-text="My Skills" style="color: rgba(0, 255, 255, 0);"><b>My</b> Skills</h2>
+  </div>
+ 
+
+  <!-- this is the first container  -->
+
+<div class="skills-wrapper1">
+    <div class="skill-title1"><h3> Coding SkillS...</h3></div>
+  
+    <div class="skill-container1">
+      <div class="box-container1">
+
+        <div class="boxi1"><i class='bx bxl-html5' style="color: rgb(255, 89, 0);"></i></div>
+        <div class="boxT1"><h3>HTML</h3></div>
+        <div class="boxP1">88% <br> <div class="progress-bsr1"></div></div>
+
+        <div class="boxi1"><i class='bx bxl-css3' style="color: rgb(255, 89, 0);"></i></div>
+        <div class="boxT1"><h3>CSS</h3></div>
+        <div class="boxP1">78% <br> <div class="progress-bsr2"></div></div>
+
+        <div class="boxi1"><i class='bx bxl-javascript' style="color: rgb(255, 217, 0);"></i></div>
+        <div class="boxT1"><h3>JS</h3></div>
+        <div class="boxP1">70% <br> <div class="progress-bsr3"></div></div>
+
+        <div class="boxi1"><i class='bx bxl-postgresql' style="color: rgb(0, 110, 255);"></i></div>
+        <div class="boxT1"><h3>Psql</h3></div>
+        <div class="boxP1">72% <br> <div class="progress-bsr4"></div></div>
+
+        <div class="boxi1"><i class='bx bxl-flutter' style="color: rgb(0, 149, 255);"></i></div>
+        <div class="boxT1"><h3>Flutt</h3></div>
+        <div class="boxP1">67% <br> <div class="progress-bsr5"></div></div>
+
+        <div class="boxi1"><i class='bx bxl-blender' style="color: rgb(221, 137, 27);"></i></div>
+        <div class="boxT1"><h3>Blndr</h3></div>
+        <div class="boxP1">80% <br> <div class="progress-bsr6"></div></div>
+
+      </div>
+    </div>
+  </div>
+  
+<!-- this is the first container  -->
+  
+  <div class="skills-wrapper2">
+    <div class="skill-title2"><h3>Professional SkillS ⭐✨✨</h3></div>
+  
+    <div class="skill-container2">
+      <div class="box-container2">
+
+        <div class="boxi2"><i class='bx bxl-visual-studio' style="color: rgb(30, 166, 212);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></h4></div>
+        <div class="boxP2">88% <br> <div class="progress-bsr1"></div></div>
+
+        <div class="boxi2"><i class='bx bxl-figma' style="color: rgb(221, 27, 185);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></h4></div>
+        <div class="boxP2">87% <br> <div class="progress-bsr2"></div></div>
+
+        <div class="boxi2"><i class='bx bxl-adobe' style="color: rgb(189, 8, 8);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></h4></div>
+        <div class="boxP2">84% <br> <div class="progress-bsr3"></div></div></div>
+
+        <div class="boxi2"><i class='bx bx-cube-alt' style="color: rgb(27, 221, 88);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></h4></div>
+        <div class="boxP2">80% <br> <div class="progress-bsr4"></div></div>
+
+        <div class="boxi2"><i class='bx bxl-blender' style="color: rgb(221, 137, 27);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></h4></div>
+        <div class="boxP2">77% <br> <div class="progress-bsr5"></div></div>
+
+        <div class="boxi2"><i class='bx bxs-video-recording' style="color: rgb(124, 14, 138);"></i></div>
+        <div class="boxT2"><h4>---<span style="color: red;">></span></h4></div>
+        <div class="boxP2">70% <br> <div class="progress-bsr6"></div></div>
+
+      </div>
+    </div>
+  </div>
+<!-- =============================================================  -->
+<!-- this is the second container  -->
+</section>
+            
+<!-- contact section  -->
+<section>
+
+   
+    <div>
+        <h2 class="heading">Contact <span>the <i style="color: rgb(255, 221, 0);" id="contact">Phenominon</i></span></h2>
+        <div id="email-send">
+            <p>
+                <h2>
+                    Welcome! If you've taken the time to explore my profile, you may be considering reaching out. Don't hesitate to connect by clicking the 'Contact Me' button at the end of this message. Ensure all fields are filled out before sending the form. After submission, patiently await a success confirmation, typically within five minutes.
+                    <br>Additionally, there are other avenues to reach me, including through the social media icons on the homepage or by exploring my CV, accessible by clicking this green icon <a href="#contact" class="btn-a1" onclick="openForm()"  title="'Click to see Mogeyogeblee curriculum vitae'"> <i style="color: #15eb0d;" class='bx bxs-book-content'></i></a> in the About section.
+                    <br>Thank you for your interest in connecting with Mogeyogebllee the Phenominon! 🙏🏼<div class="centered-button"><button id="show-btn" title="Click to open contact form">Contact Me</button></div>
+                    
+                </h2>
+            </p>
+        </div>
+    </div>
+    
+    <!-- this is the form container start -->
+ <!-- ================================================================================================== -->
+ 
+   <!-- Show button   <button id="show-btn">Show Form</button>  -->
+
+   
+ 
+  <div class="container">
+  <!-- Close button -->
+  <span class="close-btn" id="close-btn">&times;</span>
+
+  <img src="lever_emblem.png" alt="Image Description" style="width: 100%; max-width: 200px; margin-bottom: 20px;">
+  <form method="post" action="contactform.php" name="contact-form" id="contact-form">
+    <h4>Contact Me</h4>
+
+    <input type="text" name="name" placeholder="Name" required oninvalid="this.setCustomValidity('Mogeyogeblee Says Please enter your name.')" oninput="this.setCustomValidity('')" title="Moge says please fill this">
+
+    <input type="text" name="number" placeholder="Number" required pattern="[0-9]{10}" oninvalid="if(this.value==='') this.setCustomValidity('Moge says: Please enter a valid 10-digit phone number.'); else this.setCustomValidity('')" oninput="this.setCustomValidity('')" title="Moge says please fill this">
+
+    <input type="email" name="email" placeholder="Email" required oninvalid="this.setCustomValidity('Moge says: Please enter your email address.')" oninput="this.setCustomValidity('')" title="Moge says please fill this">
+
+    <select id="gender-dropdown" name="gender" required title="Mogeyogeblee says please select your GENDER: (ONLY 🚹 OR 🚺 IS ENTERTAINED)">
+      <option value="" disabled selected>Select Gender</option>
+      <option value="male">Male🚹</option>
+      <option value="female">Female🚺</option>
+      <option value="other">Other❓</option>
+    </select>
+
+    <input type="text" name="subject" placeholder="Sbject" required oninvalid="this.setCustomValidity('Moge says: Please enter your subject.')" oninput="this.setCustomValidity('')" title="Moge says please fill this">
+
+    <textarea name="message" rows="7" placeholder="Your Message" required oninvalid="this.setCustomValidity('Moge says: Please enter your main message.')" oninput="this.setCustomValidity('')" title="Moge says please fill this"></textarea>
+
+    <label id="terms-checkbox-label" for="terms-checkbox">
+      <input type="checkbox" id="terms-checkbox" name="terms-checkbox" required title="Moge says please check this box befor proceeding"> <mark>I agree to the terms and conditions</mark>
+      
+    </label>
+   <button type="submit" name="submit" id="submit">Submit</button>
+  </form>
+</div>
+ <!-- ================================================================================================== -->
+    <!-- this is the the form container ends  -->
+</section>
+
+
+<div id="CV-PATE" >
+   >
+
+     
+  </p>
+  </h2>
+    
+  </div>
+  
+  <!--this is the cv-->
+   <!-- THIS IS THE CV SECTION HERE -->
+   <!-- THIS IS THE CV SECTION HERE -->
+   <!-- THIS IS THE CV SECTION HERE -->
+
+   <div class="cv-container" id="cv-container">
+    <div class="left-column">
+        <div>
+            <h2 style="padding-top: 50px;">MOSES DORBOR</h2>
+        </div>
+        <div class="contact-links">
+            <div class="contact-link">
+                <a href="https://www.linkedin.com/in/moses-dorbor-52401a268?utm_source=" alt="Linkedin"><i class='bx bxl-linkedin-square' style="color: rgb(0, 174, 255); "></i>Linkedin</a>
+            </div>
+
+            <div class="contact-link">
+                <a href="http://wa.link/i19kok" alt="Whatsapp"><i class='bx bxl-whatsapp' style="color: rgb(10, 192, 52); " ></i>Whatsapp</a>
+            </div>
+
+            <div class="contact-link">``
+                <a href="mailto:brainboxyogeblee@gmail.com"><i style="color-interpolation-filters: red;" class='bx bxl-gmail'></i>Email</a>
+            </div>
+
+            <div class="contact-link">
+                <a href="tel:+91 81464 43618"><i style="color: #3498db;" class='bx bxs-phone-call'></i>Phone</a>
+            </div>
+            <!-- Add more contact links as needed -->
+        </div>
+        <div>
+            <h2>Soft Skills</h2>
+            <ul class="skills-list">
+                <li class="skill-item">Problem-solving</li>
+                <li class="skill-item">Project Management</li>
+                <li class="skill-item">Communication</li>
+                <li class="skill-item">Adaptability</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Languages Proficiency</h2>
+            <div class="language-item">
+                <p style="color: #051d43;">🗣️English</p>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <p style="color: #051d43;">🗣️Kinyarwanda</p>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="language-item">
+                <p style="color:  #051d43;">🗣️Hindi</p>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 60%;"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 style="color: #f5f2f6;">Hobbies & Interests</h2>
+            <ul class="skills-list">
+                <li class="skill-item" style="color: #f8f8f4;">Sports: Basketball</li>
+                <li class="skill-item" style="color: #faf8fa;">Entertainment: Video Gaming</li>
+                <li class="skill-item" style="color: #f7f9f9;">Entertainment: Watching Movies</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-column">
+        <button class="cancel-btn" onclick="closeForm()">Close</button>
+        <div>
+            <h2 style="color: #d17d08;">Professional Summary</h2>
+            <p>
+                Motivated software engineer with one year of practical experience, committed to delivering impactful results through precision and adept problem-solving. Enthusiastic about technology and adept at thriving in challenging environments, I excel in adapting to the rapid changes of our dynamic era. Eager to seize opportunities to apply my skills in project development and contribute to the creation of innovative solutions, both within and beyond the technological realm. Possessing a diverse skill set, I am capable of proposing and executing projects from conceptual creative thought to real-world implementation.
+            </p>
+        </div>
+        <div>
+            <h2 style="color: #d17d08;">Education</h2>
+            <p> <strong style="color: #15eb0d;">J.W.HARRIS SCHOOL SYSTEM</strong> (2018-2020)</p>
+            <p><strong style="color: #0debeb;">CEPTRESS INTERNATIONAL UNIVERSITY</strong>(2020-2021)</p>
+            <p><strong style="color: #e70deb;">LOVELY PROFFESSIONAL UNIVERSITY </strong>(2022-2024)</p>
+        </div>
+        <div>
+            <h2 style="color: #d17d08;">Hard Skills</h2>
+            <div>
+                <h3 style="color: #bf0dd6;">Programming Languages</h3>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 80%;"></div>
+                </div>
+                <h3 style="color: #c00dd7;">Tools & Software</h3>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 70%;"></div>
+                </div>
+                <h3 style="color: #c011d7;">3D Animation & Video Editing</h3>
+                <div class="language-progress">
+                    <div class="language-progress-bar" style="width: 60%;"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 style="color: #d17d08;">Experience</h2>
+            <p>No experience yet. The reason for this is that I haven't been given the opportunity to perform. Nevertheless, this is the only way a person can gain past experience.</p>
+        </div>
+        <div>
+            <h2 style="color: #d17d08;">Certificates</h2>
+            <p>Certificates are provided upon necessary request.</p>
+        </div>
+        <button class="download-btn" onclick="downloadCV('pdf')" title="You are not allow to download my CV  WITHOUT MY PERMITION!! ">Download PDF</button>
+
+    </div>
+</div>
+
+
+<!-- ==========  <button class="display-btn" onclick="openForm()">Display CV</button>   =========  -->
+
+  <!-- CV BUTTON HERE here -->
+ 
+  
+   
+   <!-- CV BUTTON HERE here -->
+
+
+<!--this is the cv-->
+
+
+<footer class="foter">
+    <div class="footer-text">
+        <p>Copyright &copy; 2024 by MOGEYOGEBLEE THE PHENOMINON | All Privileges Retained.</p>
+    </div>
+
+    <div class="footer-iconTOP">
+        <a href="#home">☝️</a>
+    </div>
+</footer>
+     
+    <!-- Your content goes here -->
+    <script src="Google Sheet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+<script>
+
+       // contact form java here
+
+        const scriptURL = ' https://script.google.com/macros/s/AKfycbzXaUHjMnqxIRZQXZLYnHB1ZqNqZjFg5jnTuHnfAnIoL10b0xRkcVlqmZGM573DqoiiWw/exec'; // Replace 'YOUR_GOOGLE_SCRIPT_URL_HERE' with your actual Google Script URL
+
+        const form = document.getElementById('contact-form');
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        console.log(form);
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+            if (response.ok) {
+
+                form.reset(); //THIS WILL RESERT ALL INPUT FIELD
+                return response.json(); // Parse response body as JSON
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+            })
+            .then(data => {
+            alert('Successful! Response: ' + JSON.stringify(data)); // Show response data
+            })
+            .catch(error => {
+            alert('Error! ' + error.message); // Show error message
+            });
+        });
+
+
+        // Close button functionality
+        const closeButton = document.getElementById('close-btn');
+        closeButton.addEventListener('click', () => {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('show-btn').style.display = 'block'; // Show the "Show Form" button
+        });
+
+        // Show button functionality
+        const showButton = document.getElementById('show-btn');
+        showButton.addEventListener('click', () => {
+            document.querySelector('.container').style.display = 'block';
+            showButton.style.display = 'none'; // Hide the "Show Form" button
+        });
+
+        function isValidEmail(email) {
+            // Regular expression for validating email addresses
+            const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+            return emailRegex.test(email);
+        }
+
+            // Function to show the popup
+        // Function to show the popup and overlay
+        function showPopup() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popupMessage").style.display = "block";
+        }
+
+        // Function to close the popup and overlay
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("popupMessage").style.display = "none";
+        }
+
+        // Show the popup when the page is loaded
+        window.onload = function() {
+            showPopup();
+        };
+
+
+        // cv buttomn function here
+        function OPENcvbutton(){
+            document.getElementById('coVeta').style.display="block"
+            document.getElementById('CLOSEcvbutton').style.display="block"
+            document.getElementById('OPENcvbutton').style.display="none"
+           }
+    
+           function closethis(){
+            document.getElementById('coVeta').style.display="none"
+            document.getElementById('CLOSEcvbutton').style.display="none"
+            document.getElementById('OPENcvbutton').style.display="block"
+           }
+
+     // cv buttomn function here
+
+
+
+
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Prevent form submission if checkbox is not checked
+            if (!document.getElementById('confirm-check').checked) {
+                alert("⛔ Mogeyogeblee Says you should \n Please check the checkbox to confirm your consent. \n Your message will not be submitted otherwise.\n 🙏");
+                event.preventDefault();
+            }
+        });
+
+
+
+
+      
+        function submitForm() {
+            // You can perform additional processing here before submitting the form
+            // For demonstration, let's just show an alert message
+            alert("Thank you for submitting the form! MOGEYOGEBLEE THE PHENOMINON \n appreciate your response.");
+            // Optionally, you can redirect the user to another page after successful submission
+            // window.location.href = "success.html"; // Replace 'success.html' with the URL of your success page
+        }
+
+
+
+
+          //cv java in here
+
+          function openForm() {
+            document.getElementById("cv-container").style.display = "grid";
+          }
+      
+          function closeForm() {
+            document.getElementById("cv-container").style.display = "none";
+          }
+      
+           // Add the PDF download functionality to your existing JavaScript
+           function downloadCV(format) {
+            const element = document.getElementById("cv-container");
+            if (format === 'pdf') {
+              html2pdf()
+                .from(element)
+                .save();
+            } else if (format === 'png') {
+              html2pdf()
+                .from(element)
+                .outputImg()
+                .save();
+            } 
+            else 
+            {
+                alert("You are not allowed to download my CV without my permission.\nUnless you want to download a blank PDF as canvas.");
+              }
+          }
+          
+      //cv java code
+       
+      
+    </script>
+    
+    
+</body>
+</html>
+
+

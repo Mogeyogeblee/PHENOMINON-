@@ -1,0 +1,1660 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin-top: -8px; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: left; /* Change 'none' to 'left' if you want left-aligned text */
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+p{
+    p {
+        margin-top: 2px; /* Adjust this value to move the paragraph up */
+    }
+    
+}
+
+:root {
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00acf0e3;
+}
+
+html {
+    font-size: 62.5;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif; /* Specify the fallback font after the preferred font */
+}
+
+/* Your other styles go here */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.1rem 2%; /* Adjusted padding to reduce the height */
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition:.3s; /* Adjusted transition time */
+}
+
+
+.header.sticky{
+    background: var(--bg-color);
+}
+
+/* Your other styles go here */
+
+
+.logo img {
+    width: 50px; /* Initial size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 20px; /* Adjust the margin-top value to move it down */
+}
+
+.logo:hover img {
+    transform: scale(1.4); /* Increase size on hover */
+}
+.navbar a {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    justify-content: space-between; /* Assuming you intended this for a flex container */
+    font-weight: 500;
+    margin-left: 1.0rem;
+    transition: color 0.3s; /* Corrected transform to transition for smooth color change */
+    text-decoration: none;
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px rgba(82, 232, 51, 0.8), 0 0 10px rgba(27, 20, 227, 0.6), 0 0 15px rgba(228, 228, 21, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+}
+
+a.active {
+    color: #333; /* Set your desired text color */
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    animation: glowing 2s linear infinite;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 2px; /* Adjust the size of the underline as needed */
+}
+
+#menu-icon {
+    font-size: 2.6rem; /* Adjust the size as needed */
+    color: var(--text-color);
+     cursor: pointer;
+     display: none; /*this is to not show the menu-icon, if removed or commented the icon will show */
+    /* Additional styles for better readability */
+    line-height: 1.5; /* Adjust as needed */
+    margin-right: 8px; /* Add margin for spacing */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+
+.menu-icon:hover {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+    cursor: pointer; /* Explicitly set cursor to pointer on hover */
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+
+}
+
+/* home section */
+.home {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    background-image: url('hero1.png');
+    background-repeat: no-repeat;
+    background-size: 31%; /* Adjust this value to your preference */
+    background-position: right center; /* Keep it centered horizontally */
+
+    /* Bring the background image down by adjusting the background position vertically */
+    background-position-y: 10%; /* Adjust this value to bring the background image down */
+}
+
+
+
+.home-content {
+    max-width: 60rem;
+}
+
+.home-content h1 {
+    font-size: 9.8rem;
+    font-weight: 350; /* Corrected value to a numeric value like 300, 400, etc. */
+    line-height: 1.3;
+    padding: 0 4%;
+}
+
+.text-container {
+    position: relative;
+    display: inline-block;
+    font-size: 3.5rem;
+    color: transparent; /* Set text color to transparent */
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00); /* Set your desired gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text;
+    overflow: hidden;
+    margin: 30px 0 30px 10px; /* Adjust the margin values as needed */
+}
+
+
+.glow-text {
+    display: inline-block;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: backgroundAnimation 5s ease-in-out infinite alternate;
+    
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+.home-content .text-animation{
+    position: relative;
+    width: 32.8rem;
+}
+
+.home-content .text-animation h2 {
+    font-size: 2.8rem; /* Adjust the font size as needed */
+    font-weight: 500;
+    color: transparent;
+    -webkit-text-stroke: 0.6px var(--main-color);
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -26rem 0;
+    animation: homeBgText 4s infinite linear; /* Adjust the duration and other properties as needed */
+    animation-delay: 30.5s;
+}
+
+.home-content .text-animation h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+    animation: homeCursorText 4s infinite linear; /* Adjust the duration and other properties as needed */
+    animation-delay: 30.5s; /* Adjusted animation delay for cursor to align with homeBgText */
+}
+
+h4{
+    text-align: center;
+    color: var(--main-color);
+    font-size: 2.2rem;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+    top: -15px; /* Adjust the negative value to move it up by the desired amount */
+}
+
+.btn-box {
+    position: center;
+    display: flex;
+    justify-content: space-between;
+    width: 35rem;
+    height: 6rem;
+    top: .2px; /* Adjust the negative value to move it up by the desired amount */
+}
+
+.btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem; /* Set your desired width */
+    height: 63%;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    color: var(--main-color);
+    text-decoration: none;
+    z-index: 2;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -32px;
+  }
+  
+
+.btn-box .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00); /* Set your desired gradient colors */
+    z-index: -1; /* Ensure the overlay is behind the text */
+    transition: left 0.4s ease-in-out; /* Add transition for smooth movement */
+}
+
+.btn-box .btn:hover::before {
+    left: 0; /* Move the overlay to the original position on hover */
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 1rem;
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 63px;
+    height: 63px;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 30px;
+    color: var(--main-color);
+    direction: ltr; /* Set the direction to left-to-right */
+    margin-right: 20px; /* Increase the right margin for more space between elements */
+    text-decoration: none; /* Remove underlines */
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add a transition for smooth color change and zoom effect */
+}
+
+.home-sci a:hover {
+    background: linear-gradient(to right, #ff00ff63, #00ffff2b, #ffff0025); /* Set your desired gradient colors */
+    background-position: 0; /* Start the gradient from the left */
+
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transform: scale(1.2); /* Apply a zoom effect on hover */
+}
+
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -50px; /* Adjust the bottom value to your preference */
+    width: 30%; /* Adjust the width value to your preference */
+    height: 85%;
+    background: transparent;
+    /* border: 2px solid red; */
+    transition: 2s;
+}
+
+
+.home-imgHover:hover{
+    background:var(--bg-color);
+    opacity: .9;
+}
+
+/* about section  */
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: -1rem;
+    background-color: var(--second-bg-color);
+    padding-bottom: 2rem;
+}
+
+.heading {
+    font-size: 3rem;
+    top: 20%;
+   
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    top: -1rem; /* Adjust this value to move the heading upwards */
+
+}
+
+.heading span{
+    color: var(--main-color);
+}
+
+.heading b{
+    color: red;
+}
+
+.heading b1{
+    color: rgb(246, 255, 0);
+}
+
+.heading b2{
+    color: rgb(255, 0, 204);
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes clockwise-spin-circle-1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.circle-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background-color: var(--second-bg-color);
+    padding: 20px;
+    border-top: 0.6rem solid rgba(246, 243, 243, 0.963);
+    border-left: 0.6rem solid var(--second-bg-color);
+    border-right: 0.6rem solid var(--second-bg-color);
+    border-bottom: 0.6rem solid rgba(244, 9, 9, 0.929);
+    box-sizing: border-box;
+    position: relative;
+    animation: clockwise-spin-circle-1 5s linear infinite; /* Adjust the animation duration as needed */
+}
+
+.inner-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
+}
+
+.inner-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.about-content h3 {
+    font-size: 2rem;
+    text-align: center;
+  
+}
+
+
+.circle-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 20px;
+    border-top: 0.6rem solid var(--main-color);
+    border-left: 0.6rem solid var(--second-bg-color);
+    border-right: 0.6rem solid var(--second-bg-color);
+    border-bottom: 0.6rem solid var(--main-color);
+    box-sizing: border-box;
+    animation: spin 5s linear infinite reverse; /* Reverse the animation direction */
+}
+
+  .about-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-img-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    background-color: transparent;
+    border-radius: 50%;
+    width: 100%; /* Adjust the width of the about image */
+    height: 100%; /* Adjust the height of the about image */
+    margin-top: -5px; /* Adjust the margin-top as needed */
+    margin-bottom: 2px; /* Adjust the margin-bottom as needed */
+}
+
+.about-img img {
+  width: 100%; /* Adjust the width to fill the container */
+  height: auto; /* Maintain the aspect ratio */
+  max-width: 450px; /* Set a max-width to prevent the image from exceeding the container */
+  border-radius: 50%;
+  border: 0.6rem solid var(--main-color);
+  margin-top: -5px; /* Adjust the margin-top as needed */
+}
+
+  
+  
+ 
+.about-content{
+    text-align: center;
+    justify-content:center;
+
+}
+
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+ .btn-box {
+    /* Add any additional styling for the container if needed */
+}
+
+.btn-a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem; /* Set your desired width */
+    height: 63%;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    color: var(--main-color);
+    text-decoration: none;
+    z-index: 2;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -32px;
+}
+.btn-wrapper {
+    text-align: center;
+}
+
+.btn-box .btn-a1 {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem; /* Set your desired width */
+    height: 63%;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    color: #cfdd10;
+    text-decoration: none;
+    z-index: 2;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -32px;
+}
+
+.btn-box .btn-a1::before {
+    content: '';
+    margin-left: 9%;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00); /* Set your desired gradient colors */
+    z-index: -1; /* Ensure the overlay is behind the text */
+    transition: left 0.4s ease-in-out; /* Add transition for smooth movement */
+}
+
+.btn-box .btn-a1:hover::before {
+    left: 0; /* Move the overlay to the original position on hover */
+}
+
+.btn-box .btn-a1:hover {
+    color: white;
+}
+
+
+
+
+/* education section  */
+.education {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+}
+
+.education .education-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.education-column {
+    flex: 1 1 40rem;
+}
+
+.education-column .title {
+    font-size: 2.3rem;
+    margin: 0 0 1.5rem 2rem;
+}
+
+.education-column .education-box {
+    border-left: 0.4rem solid var(--main-color);
+}
+
+.education-box .education-content {
+    position: relative;
+    padding: 2rem;
+}
+
+.education-content .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Start with 0 width */
+    height: 100%;
+    background: linear-gradient(to right, #ff00ff, #0015ff, #03540b88, #ffff00);  /* Set your desired RGB values */
+    overflow: hidden;
+    z-index: -1;
+    transition: width 0.5s; /* Transition only the width property */
+}
+
+.education-content:hover .content::before {
+    width: 100%; /* Expand the width on hover */
+}
+
+
+.education-box .education-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1.2rem;
+    width: 2rem;
+    height: 2rem;
+    background: rgb(211, 233, 10);
+    border-radius: 50%;
+}
+
+
+.experience-column {
+    flex: 1 1 40rem;
+}
+
+.experience-column .title {
+    font-size: 2.3rem;
+    margin: 0 0 1.5rem 2rem;
+}
+
+.experience-column .education-box {
+    border-left: 0.4rem solid var(--main-color);
+}
+
+.experience-box .education-content {
+    position: relative;
+    padding: 2rem;
+}
+
+.education-content .content{
+    position: relative;
+    padding: 1.5rem;
+    border: 0.4rem solid var(--main-color);
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+}
+
+.education-content .content .year{
+    font-size: 1.5rem;
+    color:var(--main-color);
+    padding-bottom: .5rem;   
+}
+
+.education-content .content .year i{
+    padding-right: .5rem;
+}
+
+.education-content .content h3 {
+    font-size: 2rem;
+    color: rgb(255, 344, 0); /* Replace with your desired RGB values */
+}
+
+.education-content .content p {
+    font-size: 1.2rem;
+    padding-top: .1rem;
+}
+
+b3{
+    color: #0015ff;
+}
+
+/* skills section */
+ 
+.skills {
+    background-color: var(--second-bg-color); /* Add your desired background color */
+    overflow: hidden; /* Hide the content initially */
+}
+
+.skills-container {
+    margin-left: 38%; /* Adjust the percentage as needed */
+}
+.skills-container h2 {
+    font-size: 6vw;
+    margin-bottom: 15px;
+    margin-top: 1px;
+    color: transparent; /* Make text transparent to hide initially */
+    -webkit-text-stroke: 0.2vw var(--second-bg-color);
+    position: relative;
+    text-transform: uppercase;
+    overflow: hidden; /* Hide the overflow content */
+}
+
+
+.skills-container h2::before {
+    content: attr(data-text); /* Set content to the data-text attribute */
+    position: absolute;
+    top: -8%;
+    left: 0;
+    width: 100%;
+    height: 98%;
+    color: hsl(126, 18%, 89%);
+    -webkit-text-stroke: 0vw var(--second-bg-color);
+    border-right: 0.5vw solid hsla(250, 79%, 26%, 0.244);
+    overflow: hidden;
+    animation: animate 5s linear infinite; /* Corrected spelling */
+}
+
+
+.skills-container h2 span1 {
+    font-weight: bold;
+}
+
+/* Animation keyframes */
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+    57% {
+        width: 60%;
+    }
+    85% {
+        width: 60%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+
+/* skill wrapper one */
+.skills-wrapper1 {
+    margin-bottom: 0.5rem;
+    float: left;
+    width: 48%; /* Adjust the width as needed */
+    /* border-top: 2px solid #00ff48; */
+    border-right: 2px solid #00ff48;
+    /* border-left: 2px solid #00ff48; */
+    /* border-bottom: 2px solid #00ff48; */
+    border-radius: 0.2rem;
+    padding: 20px;
+}
+
+
+/* skills properties one */
+.skill-title1 {
+    width: 100%;
+    color: #f200ff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    /* border: solid #00ffff; */
+     /* border-top: 2px solid #ff7300;
+    border-right: 2px solid #00ff48;
+    border-left: 2px solid #00d0ff; */
+    border-bottom: 3px solid#f200ff;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease-in-out, margin-left 0.3s ease-in-out; /* Add transition properties */
+}
+
+.skill-title1:hover {
+    border-bottom: 3px solid #f7f4f6;
+    background-color: rgb(211, 150, 26); /* Replace with your desired hover background color */
+    color: #fbf7fc;
+    margin-left: 10px; /* Adjust the margin-left value for the left direction */
+}
+.boxi1 i:hover{
+color: rgba(244, 76, 10, 0.952);
+}
+
+/* skill wrapper two */
+.skills-wrapper2 {
+    margin-bottom: 0.5rem;
+    float: right;
+    width: 48%; /* Adjust the width as needed */
+    /* border-top: 2px solid #ff7300;
+    border-right: 2px solid #00ff48;
+    border-left: 2px solid #00d0ff;
+    border-bottom: 2px solid #ff00a6; */
+    border-radius: 0.2rem;
+    padding: 20px;
+}
+
+
+/* skills properties two */
+.skill-title2 {
+    width: 100%;
+    color: goldenrod;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    /* border: solid #00ffff; */
+    /* border-top: 2px solid #ff7300;
+    border-right: 2px solid #00ff48;
+    border-left: 2px solid #00d0ff; */
+    border-bottom: 3px solid goldenrod;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease-in-out, margin-left 0.3s ease-in-out; /* Add transition properties */
+}
+
+.skill-title2:hover {
+    background-color: var(--main-color); /* Replace with your desired hover background color */
+    color: rgb(247, 247, 246);
+    margin-left: 10px; /* Adjust the margin-left value for the left direction */
+}
+
+/* ===========================================  */
+.boxi1 {
+    width: 33.3%;
+    float: left;
+    background: rgba(199, 60, 53, 0);
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+    color: #00d0ff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+}
+
+.boxi1:hover {
+    background-color: rgba(215, 215, 31, 0); /* Replace with your desired hover background color */
+    color: peru;
+    transform: scale(1.5); /* Adjust the scale value for the zoom-out effect */
+}
+
+/* =======================================  */
+
+.boxT1 {
+    width: 33.3%;
+    float: left; /* or display: inline-block; */
+    color: #ffe600;
+    background: rgba(250, 250, 249, 0);
+    margin-bottom: 0.2rem;
+    font-size: 2rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+    /* padding-left: 2rem; */
+}
+
+.boxT1:hover {
+    background-color: rgba(215, 215, 31, 0); /* Replace with your desired hover background color */
+    color: rgb(205, 193, 63);
+    transform: scale(1.2); /* Adjust the scale value for the zoom-out effect */
+}
+
+/* ======================================================  */
+.boxP1 {
+    width: 33.3%;
+    float: left; /* or display: inline-block; */
+    text-align: right; /* Align content inside the box to the right */
+    background: rgba(53, 167, 199, 0);
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+}
+
+.boxP1:hover{
+    background-color: #ffffff00;
+    color: #00ff48;
+    transform: scale(0.9);
+}
+/* ==================================================  */
+
+
+.boxi2 {
+    width: 33.3%;
+    float: left; /* or display: inline-block; */
+    background: rgba(199, 60, 53, 0);
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+}
+
+.boxi2:hover {
+    background-color: rgba(215, 215, 31, 0); /* Replace with your desired hover background color */
+    color: rgba(205, 134, 63, 0.952);
+    transform: scale(1.5); /* Adjust the scale value for the zoom-out effect */
+}
+
+/* ===============================================  */
+.boxT2 {
+    width: 33.3%;
+    float: left; /* or display: inline-block; */
+    color: #f200ff;
+    background: rgba(250, 250, 249, 0);
+    margin-bottom: 0.2rem;
+    font-size: .2rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+    /* padding-left: 2rem; */
+}
+
+.boxT2:hover {
+    background-color: rgba(215, 215, 31, 0); /* Replace with your desired hover background color */
+    color: rgb(205, 63, 188);
+    transform: scale(1.2); /* Adjust the scale value for the zoom-out effect */
+}
+/* ===========================================  */
+
+.boxP2 {
+    width: 33.3%;
+    float: left; /* or display: inline-block; */
+    text-align: right; /* Align content inside the box to the right */
+    background: rgba(53, 167, 199, 0.03);
+    margin-bottom: 0.2rem;
+    font-size: 2.5rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+}
+.boxP2:hover{
+    background-color: #ffffff00;
+    color: #00ff48;
+    transform: scale(0.9);
+}
+/* ================================================  */
+
+/* progress bars========  */
+
+.progress-bsr1 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr1 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr1 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr1 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+/* ================================================  */
+.progress-bsr2 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr2 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr3 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr3 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr4 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr4 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr5{
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr5 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr6{
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP1 .progress-bsr6 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+
+
+/* =============================================================  */
+
+
+/* ===========================================================  */
+.progress-bsr1 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr1 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr1 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr1 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(8, 111, 207) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+/* ================================================  */
+.progress-bsr2 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr2 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgba(207, 8, 197, 0.911) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr3 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr3 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(207, 8, 11) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr4 {
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr4 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(127, 207, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr5{
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr5 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(207, 127, 8) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+.progress-bsr6{
+    display: block;
+    height: 10px;
+    border: solid var(--main-color);
+    border-radius: 50rem;
+    background-color: var(--bg-color);
+}
+
+.boxP2 .progress-bsr6 {
+    display: block;
+    height: 10px;
+    padding: 4px;
+    border-radius: 50rem;
+    background-color: rgba(127, 207, 8, 0);
+    background-image: linear-gradient(to left, transparent 20%, transparent 2%, rgb(190, 8, 207) 60%, rgba(127, 207, 8, 0.927) 100%);
+}
+
+/* contact properties  */
+
+
+.btn1-box .btn1 {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem; /* Set your desired width */
+    height: 63%;
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    color: #cfdd10;
+    text-decoration: none;
+    z-index: 2;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -32px;
+  }
+  
+
+.btn1-box .btn1::before {
+    content: '';
+    margin-left: 9%;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Start off-screen to the left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00); /* Set your desired gradient colors */
+    z-index: -1; /* Ensure the overlay is behind the text */
+    transition: left 0.4s ease-in-out; /* Add transition for smooth movement */
+}
+
+.btn1-box .btn1:hover::before {
+    left: 0; /* Move the overlay to the original position on hover */
+   
+}
+.btn1-box .btn1:hover{
+    color: white;
+}
+
+/* contact properties  */ 
+#contact {
+    position: relative;
+    border: 0.1rem solid rgba(0, 217, 255, 0);
+    width: 70%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 30px; /* Add padding if necessary */
+    height: 80vh; /* Adjust the height as needed */
+}
+
+.heading {
+    position: relative;
+    margin-left: 15%;
+}
+
+.input-field {
+    position: relative;
+    font-size: 50%;
+    border: 0.1rem solid rgb(255, 255, 255); 
+    border-radius: 0.4rem;
+    padding-left: 100%;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box; /* Include padding in the total width and height */
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 0.4rem;
+}
+
+.input-field {
+    width: 48%; /* Adjust the width as needed */
+}
+
+.textarea-field {
+    position: relative;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 4.0rem;
+    border-radius: 20px;
+    overflow: hidden; /* Hide overflow */
+    
+}
+
+.textarea-field textarea {
+    margin-bottom: 10px; /* Adjust the space between the text area and the blue border */
+}
+
+
+.textarea-field::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+    width: calc(100% + 2rem);
+    height: calc(100% + 2rem);
+    background: linear-gradient(45deg, red, blue, green, yellow); /* 4 different colors */
+    animation: rotateBackground 4s linear infinite;
+    border: 0.2rem solid var(--bg-color); /* Transparent border */
+    border-image-slice: 1;
+    border-radius: 0rem;
+    z-index: -1;
+}
+
+
+
+.textarea-field textarea {
+    width: 100%;
+    margin: 10px 5px 15px 5px; /* top right bottom left */
+    padding: 1px;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    border-radius: 18px;
+    border: 0.2rem solid transparent; /* Transparent border */
+    position: relative;
+    z-index: 1;
+}
+
+
+.subm {
+    position: relative;
+    border: 2rem solid rgb(242, 255, 0);
+    margin-left: 15%;
+}
+
+.btn-container {
+    margin-top: 1rem;
+    text-align: center;
+  
+    display: flex;
+    justify-content: center;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px; /* Adjust the padding for height and width */
+    font-size: 2.0rem; /* Adjust the font size as needed */
+    margin-top: 1rem; /* Add margin to separate the rows */
+}
+
+.input-field {
+    width: 48%; /* Adjust the width as needed */
+    padding: 10px 10px; /* Adjust the padding for height and width */
+    font-size: 2.0rem; /* Adjust the font size as needed */
+}
+
+
+
+.btn1 {
+    padding: 20px 20px; /* Adjust the padding for height and width */
+    font-size: 2.0rem; /* Adjust the font size as needed */
+    margin: 0 auto;
+   
+}
+
+
+
+.foter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+    border: 2rem solid var(--second-bg-color);
+    border-radius: .6rem;
+}
+
+.footer-text p{
+    font-size: 1.6rem;
+    color: #767272;
+}
+
+/* to creat a hover effect */
+.footer-iconTOP a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem;
+    columns: var(--bg-color);
+    border: 2px solid var(--text-color);
+    background-color: var(--second-bg-color); /* Add the main-color variable for highlighting */
+    padding: 0.5rem; /* Adjust padding as needed */
+    border-radius: 0.3rem; /* Add border-radius for a rounded appearance */
+    text-decoration: none; /* Remove underlines from the anchor */
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Add your other styles as needed */
+.footer-iconTOP a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(253, 250, 253, 0.991);
+    z-index: -1;
+    transition: width 1s; /* Transition the width property */
+}
+
+.footer-iconTOP a:hover::before {
+    width: 100%; /* Make the background visible on hover */
+}
+
+
+/* RESIZABLE */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 4%;
+    }
+
+    section {
+        padding: 10rem 4% 2rem;
+    }
+
+    .home {
+        padding: 0 4%;
+    }
+
+    .fotter { /* Typo: should be .footer */
+        padding: 1rem 2rem;
+        margin-top: 0.5rem;
+        
+    }
+}
+
+
+
+.footer {
+    margin-top: 0.5rem; /* Adjust the top margin as needed */
+    padding: 1rem 2rem; /* Adjust other padding if necessary */
+}
+
+/* breackpoint  */
+@media (max-width: 1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px){
+   .header{
+    padding: 2rem 4%;
+   }
+
+   section {
+    padding: 10rem 4% 2rem;
+   }
+
+   .home{
+    padding: 0 4%;
+   }
+
+   .footer{
+    padding: 2rem 4%;
+   }
+}
+ 
+
+
+@media (max-width: 768px) {
+    .header {
+        background: var(--bg-color);
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 90%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--main-color);
+        box-shadow: 0 5rem 2rem rgba(0, 0, 0, .2);
+        z-index: 1;
+        transition: .25s ease;
+        transition-delay: .25s;
+    }
+
+    .navbar.active {
+        transition-delay: 0s;
+        left: 0;
+    }
+
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: 0; /* Fixed the left property */
+        width: 100%;
+        height: 100%;
+        background:var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        z-index: -1;
+        opacity: 0;
+        transition: .30s ease, opacity 0s .30s; /* Added opacity transition */
+        transition-delay: .30s;
+    }
+
+    .navbar.active .active-nav {
+        opacity: 1;
+        transition-delay: 0s;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        transition: translateX(-20rem);
+        transition: .30s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active a{
+        transition: translateX(0);
+        transition-delay: .30s;
+    }
+
+    .home-imgHover {
+        pointer-events: '';
+        /* background: var(--bg-color); */
+        opacity: .9s;
+    }
+
+    
+}
+
+
+@media (max-width: 520px) {
+   html{
+    font-size: 50%;
+   }
+
+   .home-content h1{
+    display: flex;
+    flex-direction: column;
+   }
+
+   .home-sci {
+    width: 160px;
+   }
+
+   .home-sci a{
+    width: 38px;
+   }
+}
+
+@media (max-width: 462px){
+  .home-content h1{
+    font-size: 5.2rem;
+  }
+
+  .education{
+    padding: 10rem 4% 5rem;
+  }
+
+  .contact form .imput-box .imput-field {
+    width: 100%;
+  }
+
+  .footer{
+    flex-direction: column-reverse;
+  }
+}
+
+
+@media (max-width: 371px){
+  .home{
+    justify-content: center;
+  }
+
+  .home-content{
+    display: left;
+    align-items: center;
+    flex-direction: column;
+    text-align-last: center;
+  }
+
+
+}
+ 
+@keyframes homeBgText {
+    6%, 
+    10%, 
+    100% {
+        background-position: 15% 0;
+    }
+    65%,
+    75%, 
+    85% {
+        background-position: 18rem 0;
+    }
+}
+
+@keyframes homeCursorText {
+    0%,
+    10%, 
+    100% {
+        width: 0;
+        border-right: 4px solid var(--main-color);
+    }
+    65%,
+    75%, 
+    85% {
+        width: 58%;
+        opacity: 100;
+        border-right: 4px solid var(--main-color);
+    }
+
+    75%,
+    85%{
+        width: 50;
+        opacity: 0;
+    }
+}
+
+.heading {
+    position: relative;
+    margin-left: 35%;
+}
+
+#heading {
+    color:#00ffff;
+    position: relative;
+    margin-left: 2%;
+    font-size: 3rem;
+    top: 20%;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    top: -1rem; /* Adjust this value to move the heading upwards */
+
+}
+
+
+.gold-text {
+    background-image: url('gold.png');
+    background-clip: text;
+    color: transparent;
+}
